@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mercari.mercaritest.data.model.ItemViewModel"/>
+    </data>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/small_margin"
+        >
+
+        <com.mercari.mercaritest.views.SquareCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/product_image"
+                app:imageUrl="@{viewModel.photo}"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|top"
+                android:layout_margin="@dimen/small_margin"
+                android:visibility="@{viewModel.soldOutVisibility}"
+                android:src="@drawable/sold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/black_14_white"
+                android:layout_gravity="bottom"
+                android:layout_margin="@dimen/small_margin"
+                android:background="@drawable/item_price_background"
+                android:padding="5dp"
+                android:textColor="@color/text_white"
+                android:text="@{viewModel.price}"
+                tools:text="$23" />
+
+        </com.mercari.mercaritest.views.SquareCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/regular_14_black_70op"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_margin="5dp"
+            android:text="@{viewModel.name}"
+            tools:text="men1"
+            />
+
+    </LinearLayout>
+
+</layout>
