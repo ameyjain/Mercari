@@ -45,7 +45,7 @@ public class ProductManager {
 
     public static void updateProducts(Context context)
     {
-        MercariServices.get(context)
+        MercariServices.getInstance(context)
                 .getItems(FILE_NAME)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
