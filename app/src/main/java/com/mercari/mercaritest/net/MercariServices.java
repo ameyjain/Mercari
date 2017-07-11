@@ -16,29 +16,33 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MercariServices {
 
-    private static volatile MercariApi mercariApi;
+    private static volatile MercariApi instance;
 
-    public static MercariApi get(final Context applicationContext) {
-        if (mercariApi == null) {
-            synchronized (MercariServices.class) {
-                if (mercariApi == null) {
-
-                    final OkHttpClient client = new OkHttpClient.Builder()
-                            .addInterceptor(new LocalDataInterceptor(applicationContext))
-                            .build();
-
-                    mercariApi = new Retrofit.Builder()
-                            .client(client)
-                            .baseUrl(MercariApi.BASE_URL)
-                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                            .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setFieldNamingPolicy
-                                    (FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()))
-                            .build()
-                            .create(MercariApi.class);
-
-                }
-            }
+    public static MercariApi getInstance(Context context)
+    {
+        if (instance == null)
+        {
+            instance = createRetrofitApi(context);
         }
-        return mercariApi;
+
+        return instance;
+    }
+
+    public static MercariApi createRetrofitApi(final Context applicationContext) {
+
+
+        final OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new LocalDataInterceptor(applicationContext))
+                .build();
+
+        return new Retrofit.Builder()
+                .client(client)
+                .baseUrl(MercariApi.BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setFieldNamingPolicy
+                        (FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()))
+                .build()
+                .create(MercariApi.class);
+
     }
 }

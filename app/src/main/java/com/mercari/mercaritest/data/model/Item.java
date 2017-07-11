@@ -2,21 +2,36 @@ package com.mercari.mercaritest.data.model;
 
 public class Item {
 
-    public final String id;
-    public final String name;
-    public final String status;
-    public final long num_likes;
-    public final long num_comments;
-    public final long price;
-    public final String photo;
+    private String id;
+    private String name;
+    private Status status;
+    private int numLikes;
+    private int numComments;
+    private double price;
+    private String photo;
 
-    public Item(String id, String name, long num_likes, long num_comments, long price, String photo, String status) {
-        this.id = id;
-        this.name = name;
-        this.num_likes = num_likes;
-        this.num_comments = num_comments;
-        this.price = price;
-        this.photo = photo;
-        this.status = status;
+    public String getName() {
+        return name;
     }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public int getNumLikes() {
+        return numLikes;
+    }
+
+    public int getNumComments() {
+        return numComments;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
 }

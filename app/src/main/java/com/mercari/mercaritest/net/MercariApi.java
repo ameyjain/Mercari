@@ -12,7 +12,7 @@ import retrofit2.http.Path;
 
 public interface MercariApi {
 
-    String BASE_URL = "PUT_YOUR_BASE_URL_HERE";
+    String BASE_URL = "https://PUT_YOUR_BASE_URL_HERE.com";
 
     @GET("{category}")
     Observable<Response> getItems(@Path("category") final String category);
