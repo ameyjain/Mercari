@@ -20,7 +20,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(ItemViewModel item) {
 
-        binding.setVariable(BR.viewModel, item);
+        binding.setVariable(BR.itemViewModel, item);
         binding.executePendingBindings();
 
     }

@@ -7,7 +7,7 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="itemViewModel"
             type="com.mercari.mercaritest.data.model.ItemViewModel"/>
     </data>
 
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/product_image"
-                app:imageUrl="@{viewModel.photo}"
+                app:imageUrl="@{itemViewModel.photo}"
                 />
 
             <ImageView
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|top"
                 android:layout_margin="@dimen/small_margin"
-                android:visibility="@{viewModel.soldOutVisibility}"
+                android:visibility="@{itemViewModel.soldOutVisibility}"
                 android:src="@drawable/sold"/>
 
             <TextView
@@ -46,7 +46,7 @@
                 android:background="@drawable/item_price_background"
                 android:padding="5dp"
                 android:textColor="@color/text_white"
-                android:text="@{viewModel.price}"
+                android:text="@{itemViewModel.price}"
                 tools:text="$23" />
 
         </com.mercari.mercaritest.views.SquareCardView>
@@ -58,7 +58,7 @@
             android:lines="1"
             android:ellipsize="end"
             android:layout_margin="5dp"
-            android:text="@{viewModel.name}"
+            android:text="@{itemViewModel.name}"
             tools:text="men1"
             />
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MercariTest</string>
+    <string name="product_image">Product Image</string>
 </resources>

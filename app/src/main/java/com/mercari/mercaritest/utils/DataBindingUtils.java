@@ -22,6 +22,7 @@ public class DataBindingUtils {
 
         Glide.with(view.getContext())
                 .load(imageUrl)
+                .fitCenter()
                 .bitmapTransform(new RoundedCornersTransformation(view.getContext(), pixels, pixels))
                 .into(view);
 

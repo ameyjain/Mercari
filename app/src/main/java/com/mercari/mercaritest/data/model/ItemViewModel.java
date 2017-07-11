@@ -1,5 +1,6 @@
 package com.mercari.mercaritest.data.model;
 
+import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.view.View;
 
@@ -9,7 +10,7 @@ import com.mercari.mercaritest.utils.PriceUtils;
  * Created by AmeyJain on 7/11/17.
  */
 
-public class ItemViewModel {
+public class ItemViewModel extends BaseObservable{
 
     //==============================================================================================
     // Class properties

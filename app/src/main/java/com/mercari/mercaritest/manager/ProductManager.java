@@ -51,8 +51,7 @@ public class ProductManager {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         feed -> {
-
-                            //TODO: pass the list of items to products
+                            products.onNext(feed.getItems());
                         },
                         throwable -> {
 
