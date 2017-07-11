@@ -3,4 +3,6 @@
     <item name="default_text_spacing" format="float" type="dimen">0.01</item>
     <dimen name="item_vertical_margin">16dp</dimen>
     <dimen name="item_horizontal_margin">6dp</dimen>
+    <dimen name="small_margin">4dp</dimen>
+    <dimen name="corner_radius">2dp</dimen>
 </resources>
