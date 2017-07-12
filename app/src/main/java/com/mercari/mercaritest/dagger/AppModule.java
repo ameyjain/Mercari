@@ -1,6 +1,5 @@
-package com.mercari.mercaritest;
+package com.mercari.mercaritest.dagger;
 
-import android.app.Application;
 import android.support.annotation.NonNull;
 
 import javax.inject.Singleton;
@@ -19,7 +18,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public Application provideApp() {
+    public MercariApp provideApp() {
         return app;
     }
 }

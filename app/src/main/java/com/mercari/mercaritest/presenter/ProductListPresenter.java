@@ -1,10 +1,8 @@
 package com.mercari.mercaritest.presenter;
 
-import android.content.Context;
-
+import com.mercari.mercaritest.manager.ProductManager;
 import com.mercari.mercaritest.data.model.Item;
 import com.mercari.mercaritest.interactor.ProductListInteractor;
-import com.mercari.mercaritest.manager.ProductManager;
 
 import java.util.ArrayList;
 
@@ -35,7 +33,7 @@ public class ProductListPresenter {
 
     private void init() {
 
-        subscription = ProductManager.getProductsObservable()
+        subscription = ProductManager.getInstance().getProductsObservable()
                 .subscribeWith(new DisposableObserver<ArrayList<Item>>() {
                     @Override
                     public void onNext(ArrayList<Item> items) {
@@ -43,7 +41,6 @@ public class ProductListPresenter {
                         if (view != null) {
                             view.showProducts(items);
                         }
-
                     }
 
                     @Override
@@ -61,9 +58,9 @@ public class ProductListPresenter {
 
     }
 
-    public void getProducts(Context context)
+    public void getProducts()
     {
-        ProductManager.updateProducts(context);
+        ProductManager.getInstance().updateProducts();
     }
 
     public void unbind() {
