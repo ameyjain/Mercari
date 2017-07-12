@@ -50,7 +50,7 @@ public class ProductListActivity extends AppCompatActivity
 
         setupRecyclerView();
         presenter = new ProductListPresenter(this);
-        presenter.getProducts(this);
+        presenter.getProducts();
     }
 
     @Override
@@ -79,7 +79,7 @@ public class ProductListActivity extends AppCompatActivity
 
     @Override
     public void onRefresh() {
-        presenter.getProducts(this);
+        presenter.getProducts();
     }
 
     @Override
